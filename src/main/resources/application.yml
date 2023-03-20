@@ -1,0 +1,15 @@
+spring:
+  application:
+    name: Notifier
+  profiles:
+    active: local
+
+notifier:
+  microsoft:
+    teams:
+      webhook:
+        url: https://nacionserviciossl.webhook.office.com/webhookb2/8ebc8753-ac82-4bf8-8980-f73cf7ae2b92@55b0adbe-861e-4eb2-8543-50fd870667eb/IncomingWebhook/317fff935772470aa75a7bb9020c610e/afa13a30-4df7-452e-bbb8-80c60a5a35b3
+
+logging:
+  level:
+    com.dionich: DEBUG

@@ -48,7 +48,7 @@ public class Message {
 
    public Message(Exception exception){
       this.setThemeColor(Color.RED);
-      this.summary = String.format(summary, "An error has been encountered on " + getApplicationName());
+      this.summary = String.format(summary, getApplicationName());
       this.sections = new ArrayList<>();
       this.potentialActions = new ArrayList<>();
 

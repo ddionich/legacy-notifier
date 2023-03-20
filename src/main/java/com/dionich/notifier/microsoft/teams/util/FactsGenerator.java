@@ -11,16 +11,7 @@ import com.dionich.notifier.util.ApplicationInfo;
 
 public class FactsGenerator {
 
-   public static ArrayList<Fact> getDefaultFacts(Throwable exception){
-      return new ArrayList<>(){{
-         addAll(getExceptionInfo(exception));
-         addAll(getProjectInfo());
-      }};
-   }
-
    public static ArrayList<Fact> getExceptionInfo(Throwable exception){
-
-      long linesForStackTrace = 4L;
 
       ArrayList<Fact> facts = new ArrayList<Fact>();
       facts.add(new Fact("Error", exception.toString() ));
@@ -32,7 +23,7 @@ public class FactsGenerator {
       if (Objects.nonNull(exception.getStackTrace())) {
          facts.add(new Fact("Stack Trace", Arrays.stream(exception.getStackTrace())
                .map(StackTraceElement::toString)
-               .limit(linesForStackTrace)
+               .limit(5L)
                .collect(Collectors.joining("\n"))));
       }
 

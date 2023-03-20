@@ -28,7 +28,7 @@ public class Section {
    private boolean markdown = true;
 
    public Section(Exception exception){
-      this.activityTitle = "Error encountered on %s".replace("%s", getApplicationName());
+      this.activityTitle = String.format("Error encountered on %s", getApplicationName());
       this.activitySubtitle = exception.getClass().getSimpleName();
       this.text = "Detailed information about exception:";
       this.facts = getExceptionInfo(exception);

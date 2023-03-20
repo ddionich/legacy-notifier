@@ -19,7 +19,6 @@ public class Startup implements ApplicationListener<ContextRefreshedEvent> {
    }
 
    public void onApplicationEvent(ContextRefreshedEvent event) {
-
       // make something that throw an exception
 
       try {
@@ -27,9 +26,13 @@ public class Startup implements ApplicationListener<ContextRefreshedEvent> {
       } catch (Exception e) {
          log.error("Error sending message", e);
          microsoftTeamsService.sendMessage(e);
+      }finally {
+         try {
+            Thread.sleep(5000);
+         } catch (InterruptedException e) {
+            throw new RuntimeException(e);
+         }
       }
-
-
    }
 
 }
